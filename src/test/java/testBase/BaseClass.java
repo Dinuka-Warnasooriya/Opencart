@@ -18,6 +18,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import org.apache.logging.log4j.LogManager;
@@ -31,11 +32,13 @@ public class BaseClass {
 	public Logger logger;//for logging
 	
 	public ResourceBundle rb;
-	@Parameters("browser")
+	
+	
+	
 	@BeforeClass(groups = {"Master","Sanity","Regression"})
+	@Parameters("browser")
 	
-	
-	public void setup(String br) {
+	public void setup(@Optional("chrome")String br) {
 		rb =ResourceBundle.getBundle("config");//Load config.properties file
 		
 		logger = LogManager.getLogger(this.getClass());//logging
