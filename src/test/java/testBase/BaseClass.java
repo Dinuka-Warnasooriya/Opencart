@@ -32,8 +32,9 @@ public class BaseClass {
 	
 	public ResourceBundle rb;
 	
-	@BeforeClass(groups = {"Master","Sanity","Regression"})
 	@Parameters("browser")
+	@BeforeClass(groups = {"Master","Sanity","Regression"})
+	
 	public void setup(String br) {
 		rb =ResourceBundle.getBundle("config");//Load config.properties file
 		
